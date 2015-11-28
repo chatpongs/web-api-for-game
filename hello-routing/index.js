@@ -11,8 +11,21 @@ app.get('/test', function(req, res, next){
   res.send('Hello Test');
 });
 
-app.get('/course/:name', function(req, res, next){
-  res.send('Hello Course ' + req.params.name);
+app.get('/echo/:name', function(req, res, next){
+  res.send('Hello ' + req.params.name);
+});
+
+app.get('/bento/', function(req, res, next){
+  res.send('Hello Course Bento');
+});
+
+app.post('/bento/', function(req, res, next){
+  var info = {
+    name: 'Course Bento',
+    description: 'Online course center',
+    url: 'http://www.coursebento.com',
+  };
+  res.json(info);
 });
 
 var server = app.listen(app.get('port'), function() {
